@@ -1,45 +1,89 @@
-import { globalStyle, style } from '@vanilla-extract/css';
-
-const bottomBtn = style({
-  position: 'fixed',
-  zIndex: 2,
-  width: '100%',
-  padding: '12px',
-  bottom: 0,
-});
+import { style } from '@vanilla-extract/css';
 
 const container = style({
   display: 'flex',
-  padding: '1rem',
+  padding: '16px 20px',
   flexDirection: 'column',
-  gap: '1rem',
+  gap: '2rem',
 });
 
-const box = style({
+const section = style({
   display: 'flex',
-  padding: '1rem',
   flexDirection: 'column',
-  gap: '1rem',
-  borderRadius: '1rem',
-  backgroundColor: '#F3F4F5',
+  gap: '8px',
 });
 
-const row = style({
+const sectionHeader = style({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
 });
 
-const switchItem = style({});
+const articleCard = style({
+  backgroundColor: '#F2F3F5',
+  borderRadius: '24px',
+  padding: '16px 0 16px 16px',
+  overflow: 'hidden',
+  cursor: 'pointer',
+});
 
-globalStyle(`${switchItem} > span > span:first-child`, {
-  fontWeight: 500,
+const articleContent = style({
+  flex: '1 0 0',
+  display: 'flex',
+  flexDirection: 'column',
+  minWidth: 0,
+  marginRight: '88px',
+});
+
+const articleTitle = style({
+  fontWeight: 600,
+});
+
+const newBadge = style({
+  display: 'flex',
+  alignItems: 'center',
+  gap: '2px',
+});
+
+const newText = style({
+  fontSize: '12px',
+  lineHeight: '16px',
+  letterSpacing: '1.25px',
+  textTransform: 'uppercase',
+  color: '#2A77EF',
+});
+
+const tagsRow = style({
+  display: 'flex',
+  flexWrap: 'wrap',
+  gap: '8px',
+});
+
+const articleImgWrap = style({
+  position: 'absolute',
+  right: 0,
+  top: 0,
+  height: '80px',
+  width: '88px',
+  overflow: 'hidden',
+  pointerEvents: 'none',
+});
+
+const articleImg = style({
+  objectFit: 'contain',
+  margin: '-16px 0',
 });
 
 export const appSt = {
-  bottomBtn,
   container,
-  box,
-  row,
-  switchItem,
+  section,
+  sectionHeader,
+  articleCard,
+  articleContent,
+  articleTitle,
+  newBadge,
+  newText,
+  articleImgWrap,
+  articleImg,
+  tagsRow,
 };
