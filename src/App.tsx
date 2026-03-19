@@ -74,7 +74,14 @@ export const App = () => {
               key={idx}
               href={article.link}
               className={appSt.articleCard}
-              onClick={() => window.gtag('event', `7310_article_var1`)}
+              onClick={() => {
+                window.gtag('event', '7442_longread_click', {
+                  var: 'var1',
+                  section: `s${categories.indexOf(category) + 1}`,
+                  longread: `s${categories.indexOf(category) + 1}_l${idx + 1}`,
+                });
+                window.location.replace(article.link);
+              }}
             >
               <PureCell.Content>
                 <PureCell.Main>
