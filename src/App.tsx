@@ -29,6 +29,15 @@ export const App = () => {
 
   const visibleGrouped = activeCategory ? { [activeCategory]: grouped[activeCategory] ?? [] } : grouped;
 
+  const onClickArticle = (link: string, title: string) => {
+    window.gtag('event', '7442_longread_click', {
+      var: 'var1',
+      section: `${activeCategory || 'Все рубрики'}`,
+      longread: title,
+    });
+    window.location.replace(link);
+  };
+
   return (
     <div className={appSt.container}>
       <Typography.TitleResponsive style={{ marginTop: '1rem' }} tag="h1" view="medium" font="system" weight="semibold">
@@ -74,14 +83,7 @@ export const App = () => {
               key={idx}
               href={article.link}
               className={appSt.articleCard}
-              onClick={() => {
-                window.gtag('event', '7442_longread_click', {
-                  var: 'var1',
-                  section: `s${categories.indexOf(category) + 1}`,
-                  longread: `s${categories.indexOf(category) + 1}_l${idx + 1}`,
-                });
-                window.location.replace(article.link);
-              }}
+              onClick={() => onClickArticle(article.link, article.title)}
             >
               <PureCell.Content>
                 <PureCell.Main>
